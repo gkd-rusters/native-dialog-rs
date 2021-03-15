@@ -25,12 +25,12 @@ fn main() {
                     button: MouseButton::Left,
                     ..
                 } => {
-                    let path = FileDialog::new().set_owner(&window).show_open_single_file();
+                    let path = FileDialog::new().set_owner(Some(&window)).show_open_single_file();
 
                     MessageDialog::new()
                         .set_title("Message")
                         .set_text(&format!("{:?}", path))
-                        .set_owner(&window)
+                        .set_owner(Some(&window))
                         .show_alert()
                         .unwrap();
                 }

@@ -47,8 +47,8 @@ impl<'a> MessageDialog<'a> {
     }
 
     /// Sets the owner of the dialog. On Unix and GNU/Linux, this is a no-op.
-    pub fn set_owner<W: HasRawWindowHandle>(mut self, window: &W) -> Self {
-        self.owner = Some(window.raw_window_handle());
+    pub fn set_owner<W: HasRawWindowHandle>(mut self, window: Option<&W>) -> Self {
+        self.owner = window.map(|w| w.raw_window_handle());
         self
     }
 

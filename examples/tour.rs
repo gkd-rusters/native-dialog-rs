@@ -12,7 +12,7 @@ fn main() {
     let result = MessageDialog::new()
         .set_title("Tour")
         .set_text("Do you want to begin the tour?")
-        .set_type(MessageType::Warning)
+        .set_type(MessageType::Info)
         .show_confirm()
         .unwrap();
     if !result {
